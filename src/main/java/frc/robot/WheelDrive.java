@@ -161,15 +161,20 @@ public class WheelDrive {
     
     
     public void turnAndDrive(double setAngle, double speed, double turn, double wheelAngle) {
-        double turnPower = turn * 45;
+        double turnPower = turn * -45;
         
 
-        if (MathHelp.isEqualApprox(setAngle, wheelAngle, 90)) {
+        if (MathHelp.isEqualApprox(setAngle, wheelAngle, 90)) 
+        {
             setAngle += turnPower;
-        } else {
+        } 
+        else
+        {
             setAngle -= turnPower;
         }
 
+        SmartDashboard.putNumber("turnPower", turnPower);
+        SmartDashboard.putNumber("turn and drive Angle", setAngle);
 
 
         double currentAngle = -(this.encoder.getAbsolutePosition());

@@ -54,14 +54,7 @@ public class Swervedrive {
         // else{
         //   angle = 0;
         // }
-    
-        
-        
-      
-        
-    
-       
-        
+
         
         SmartDashboard.putNumber("Raw angle", angle);
         
@@ -107,20 +100,20 @@ public class Swervedrive {
         // angle = 0;
         // speed *=0.25;
         if(rX == 0){
-            frontLeft.SetDirection(angle, speed);
-            frontRight.SetDirection(angle, speed);
-            backLeft.SetDirection(angle, speed);
-            backRight.SetDirection(angle, speed);
+            frontLeft.SetDirection(angle-yaw, speed);
+            frontRight.SetDirection(angle-yaw, speed);
+            backLeft.SetDirection(angle-yaw, speed);
+            backRight.SetDirection(angle-yaw, speed);
         } else if (speed == 0){
           frontLeft.SetDirection(45, rX);
           frontRight.SetDirection(135, rX);
           backLeft.SetDirection(315, rX);
           backRight.SetDirection(225, rX);
         }else{
-          frontLeft.turnAndDrive(angle, speed, rX, 315);
-          frontRight.turnAndDrive(angle, speed, rX, 45);
-          backLeft.turnAndDrive(angle, speed, rX, 135);
-          backRight.turnAndDrive(angle, speed, rX, 225);
+          frontLeft.turnAndDrive(angle-yaw, speed, rX, 315);
+          frontRight.turnAndDrive(angle-yaw, speed, rX, 45);
+          backLeft.turnAndDrive(angle-yaw, speed, rX, 135);
+          backRight.turnAndDrive(angle-yaw, speed, rX, 225);
         }
         
         
